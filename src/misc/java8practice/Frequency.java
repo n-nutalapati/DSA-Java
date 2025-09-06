@@ -21,7 +21,7 @@ public class Frequency {
 
         // frequency of each elememt
 
-        List<String> lst = Arrays.asList("Hi", "Hello", "Notebook", "Pen", "Pencil", "Book");
+        List<String> lst = Arrays.asList("Hi", "Hello", "Hi", "Notebook", "Pen", "Pencil", "Book");
 
         Map<String, Long> map = lst.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
