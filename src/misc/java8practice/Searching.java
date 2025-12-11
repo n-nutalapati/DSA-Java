@@ -9,7 +9,7 @@ public class Searching {
 //        Given a list of integers, find maximum and minimum of those numbers?
         List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
 
-        int max = listOfIntegers.stream().max((a,b)-> b-a).get();
+        int max = listOfIntegers.stream().max((a,b)-> a-b).get();
         System.out.println(max);
     }
 }

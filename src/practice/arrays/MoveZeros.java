@@ -1,4 +1,4 @@
-package misc.java8practice;
+package practice.arrays;
 
 import java.util.Arrays;
 
@@ -10,8 +10,8 @@ public class MoveZeros {
         for(int right =0; right <nums.length; right++){
             if(nums[right] != 0) {
                 nums[left++] = nums[right];
+                nums[right] = 0;
             }
-            nums[right] = 0;
         }
 
         System.out.println(Arrays.toString(nums));

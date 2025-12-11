@@ -3,8 +3,8 @@ package misc.java8practice;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+//import java.util.function.Function;
+//import java.util.stream.Collectors;
 
 public class AvgLengthOfaString {
     public static void main(String[] args) {
@@ -16,7 +16,10 @@ public class AvgLengthOfaString {
 
 //        System.out.println(avg.getAsDouble());
 
-        words.stream().collect(Collectors.groupingBy(Function.identity())).forEach((a,b)-> {System.out.println(a);
-            System.out.println(b);});
+        OptionalDouble avg = words.stream().map(String::length)
+                .mapToInt(x->x)
+                .average();
+
+        System.out.println(avg.getAsDouble());
     }
 }

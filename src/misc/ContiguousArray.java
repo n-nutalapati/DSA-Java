@@ -23,10 +23,10 @@ public class ContiguousArray {
 
             if(map.containsKey(freq)){
                 maxLen = Math.max(maxLen, i-map.get(freq));
-//                System.out.println(maxLen + " : " + i + " : " + map.get(freq) );
+                System.out.println(maxLen + " : " + i + " : " + map.get(freq) );
             } else {
                 map.put(freq, i);
-//                System.out.println(map);
+                System.out.println("putting: "+map);
             }
         }
 

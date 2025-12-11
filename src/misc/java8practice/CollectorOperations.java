@@ -17,16 +17,16 @@ public class CollectorOperations {
 
         // groupingBy - group elements of stream by a specified classifier function
         // Qno. Group a list of people by their city
-//        List<Person> people = Arrays.asList(
-//                new Person("john", "New York"),
-//                new Person("wick", "London"),
-//                new Person("smith", "New York")
-//        );
-//
-//        Map<String, List<Person>> res = people.stream()
-//                .collect(Collectors.groupingBy(Person::getCity));
-//
-//        System.out.println(res);
+        List<Person> people = Arrays.asList(
+                new Person("john", "New York"),
+                new Person("wick", "London"),
+                new Person("smith", "New York")
+        );
+
+        Map<String, List<Person>> res = people.stream()
+                .collect(Collectors.groupingBy(Person::getCity));
+
+        System.out.println(res);
 
     }
 }

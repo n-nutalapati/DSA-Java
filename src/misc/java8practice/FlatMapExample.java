@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class FlatMapExample {
-    // Given a list of list of strings, flatten them into a single list of strings.
+    // Given a list having list of strings, flatten them into a single list of strings.
     public static void main(String[] args) {
         List<List<String>> lol = Arrays.asList(
                 Arrays.asList("one", "two"),
