@@ -1,4 +1,4 @@
-package misc.strings;
+package practice.strings;
 
 import java.util.Arrays;
 

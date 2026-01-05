@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class InterviewQuestions {
     public static void main(String[] args) {
+
 //        01 Given a sentence, find the word that has the highest length
 //        String s = "I am going to get the offer letter";
 //        String res = Arrays.stream(s.split(" "))
@@ -87,5 +88,7 @@ public class InterviewQuestions {
                                 .findFirst()
                                         .get();
         System.out.println(res);
+
+
     }
 }
