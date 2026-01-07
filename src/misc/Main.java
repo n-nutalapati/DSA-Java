@@ -105,12 +105,12 @@ public class Main {
 //						Collectors.averagingDouble(misc.Employee::getSalary)));
 
 		List<Employee> employees = Arrays.asList(
-				new Employee("John", 25, 50000),
-				new Employee("Alice", 32, 60000),
-				new Employee("Bob", 35, 70000),
-				new Employee("Charlie", 32, 65000),
-				new Employee("David", 40, 80000),
-				new Employee("Eve", 35, 75000)
+				new Employee("John", 25, 50000, "HR"),
+				new Employee("Alice", 32, 60000, "IT"),
+				new Employee("Bob", 35, 70000, "IT"),
+				new Employee("Charlie", 32, 65000, "Finance"),
+				new Employee("David", 40, 80000, "Finance"),
+				new Employee("Eve", 35, 75000, "HR")
 		);
 
 //		employees.stream()
@@ -122,9 +122,14 @@ public class Main {
 //				.filter(employee -> employee.getSalary() > employees.stream().mapToDouble(misc.Employee::getSalary).average().getAsDouble())
 //				.forEach(emp -> System.out.println(emp.getName() + ": " + emp.getSalary()));
 
+//		employees.stream()
+//				.collect(Collectors.groupingBy(emp -> emp.getAge() / 10 * 10, Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))))
+//				.forEach((ageGroup, emp) -> System.out.println("Age Group " + ageGroup + ": " + emp.get().getName() + " with salary " + emp.get().getSalary()));
+
+
 		employees.stream()
-				.collect(Collectors.groupingBy(emp -> emp.getAge() / 10 * 10, Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))))
-				.forEach((ageGroup, emp) -> System.out.println("Age Group " + ageGroup + ": " + emp.get().getName() + " with salary " + emp.get().getSalary()));
+				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))))
+				.forEach((dept, emp) -> System.out.println("Department " + dept + ": " + emp.get().getName() + " with salary " + emp.get().getSalary()));
 
 	}
 }
@@ -133,12 +138,14 @@ class Employee {
 	private String name;
 	private int age;
 	private double salary;
+	private String department;
 
 	// getters and setters
-	public Employee( String name, int age, double salary) {
+	public Employee( String name, int age, double salary, String department) {
 		this.age = age;
 		this.name = name;
 		this.salary = salary;
+		this.department = department;
 	}
 	public String getName() {
 		return name;
@@ -148,5 +155,8 @@ class Employee {
 	}
 	public double getSalary() {
 		return salary;
+	}
+	public String getDepartment() {
+		return department;
 	}
 }
